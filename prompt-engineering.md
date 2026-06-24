@@ -1,7 +1,7 @@
-Here is your **GitHub-ready `.md` file content** for the 12 types of prompt engineering:
+# Prompt Engineering
+> the way you design and structure inputs (prompts) to get the best possible output from AI models like ChatGPT, Copilot, etc.
 
-```markdown
-# Prompt Engineering Types
+## Prompt Engineering Types
 
 Prompt engineering is the practice of designing effective inputs (prompts) to get accurate and useful outputs from AI models.
 
