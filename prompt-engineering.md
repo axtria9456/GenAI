@@ -111,38 +111,4 @@ Breaking complex tasks into multiple connected prompts.
 
 ---
 
-## ✅ Summary
 
-| Type | Best Use Case |
-|------|--------------|
-| Zero-shot | Simple tasks |
-| One-shot | Guided responses |
-| Few-shot | Pattern learning |
-| Instruction-based | General tasks |
-| Role-based | Expert-level answers |
-| Chain-of-Thought | Problem solving |
-| Self-consistency | Accuracy improvement |
-| Iterative | Refinement |
-| Contextual | Data-driven output |
-| Output-format | Structured results |
-| Constraint-based | Controlled output |
-| Prompt chaining | Complex workflows |
-
----
-
-## 💡 Tip
-
-For real-world applications (like GenAI / enterprise chatbots):
-- Combine **Contextual + Output-format + Constraints**
-- This ensures accurate, structured, and reliable responses
-```
-
-***
-
-✅ You can:
-
-1. Copy this content
-2. Save it as `prompt-engineering-types.md`
-3. Upload directly to GitHub
-
-If you want, I can also **create an advanced version with EVAN / pharma examples** tailored to your work 👍
