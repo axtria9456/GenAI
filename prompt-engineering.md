@@ -121,6 +121,49 @@ Example Prompt: Find a scientific reference proving that avocado reduces blood s
 **Ambiguity:** Without private context, models default to generic interpretations.  
 Example Prompt: Explain how to secure a lakehouse. (This triggers advice on physical home security rather than Databricks Data Lakehouse governance.)  
 
+## Retrival Agent
+A retrieval agent is like a smart assistant that first “searches for information” and then gives you an answer. it is a part of RAG. 
+Normal AI Gives answers on Pre-trained data. Retrieval Agent gives real-time date. 
+
+# RAG
+RAG is a method where AI first searches for information and then generates an answer.  
+
+Think of RAG like an open-book exam:  
+❌ Normal AI → answers from memory (may guess)  
+✅ RAG → opens book → finds info → then answers  
+
+## How RAG Works (Step-by-step)
+User asks a question  
+System retrieves relevant data from:  
+ - Documents (PDFs, SharePoint)
+ - Databases
+ - Websites / knowledge sources
+AI reads the retrieved info  
+AI generates a final answer based on that data
+
+✅ Result = accurate + up-to-date answer  
+
+## The RAG process consists of three key stages:
+**Retrieval:** The system searches a knowledge base (indexed via Mosaic AI Vector Search) for relevant data chunks  
+**Augmentation:** The system injects these chunks into the context window  
+**Generation:** The model synthesizes an answer using only the injected data  
+
+Here is the **RAG vs Normal AI table in GitHub Markdown (.md) format**:
+
+```markdown
+## RAG vs Normal AI
+
+| Feature        | Normal AI              | RAG (Retrieval-Augmented Generation) |
+|----------------|----------------------|--------------------------------------|
+| Knowledge      | Pre-trained only     | Pre-trained + real-time data         |
+| Accuracy       | May hallucinate      | More accurate and reliable           |
+| Data Source    | Internal memory      | External sources (docs, DBs, APIs)   |
+| Updates        | Static knowledge     | Dynamic and up-to-date               |
+| Response Style | General answers      | Context-based answers                |
+| Use Case       | Simple queries       | Enterprise, pharma, legal, finance   |
+```
+
+
 
 
 
