@@ -111,4 +111,16 @@ Breaking complex tasks into multiple connected prompts.
 
 ---
 
+## The Boundaries of Prompting  
+**The Knowledge Cutoff:** The model cannot answer questions about events that occurred after the cutoff date of its training data.  
+Example Prompt: Who won the 2025 Nobel Prize in Physics?  
+
+**Hallucination:** When asked for specific facts without external references, models often prioritize plausibility over truth, fabricating citations or data points.  
+Example Prompt: Find a scientific reference proving that avocado reduces blood sugar levels  
+
+**Ambiguity:** Without private context, models default to generic interpretations.  
+Example Prompt: Explain how to secure a lakehouse. (This triggers advice on physical home security rather than Databricks Data Lakehouse governance.)  
+
+
+
 
