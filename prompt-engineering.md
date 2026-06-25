@@ -167,25 +167,26 @@ Parsing the document to structured
 Transform and chunk parsed document & save to Delta table
 
 
-EMBEDDING:
+**EMBEDDING:**
  > Converting text to numbers (vector representation)
 
 Databricks GTE Large: Text Embeding Model
  > for video, audio, images we use respective embeded models.
 
-VECTOR DATABASE:
+**VECTOR DATABASE:**
 - A normal database finds exact matches  
   EG: Search: "car"  
   Result: documents containing the word "car"
 
 - A Vector Database finds documents with similar meaning
   Search: "vehicle"  
-  Result: documents about cars, trucks, automobiles, transport, etc.
+  Result: documents about cars, trucks, automobiles, transport, etc. 
 
 A vector database stores both document embeddings and query embeddings, but in different ways.  
 1. Document Embeddings (Stored Permanently)
 2. Query Embeddings (Temperary on the fly)
-   
+
+> Databricks Mosaic AI Vector Search : Vector DB
 
 **Search Methods**
 A. Similarity Search
@@ -205,13 +206,95 @@ Automatically:
  1. Embedding created  
  2. Vector index updated
 
+**Vector Index:**
+A Vector Index is a special data structure inside a vector database that helps find similar vectors very quickly.    
+
+**Vector Search Endpoint:**
+A Vector Search Endpoint is the service that receives search requests and performs similarity search on your vector indexes. The endpoint knows where the vector indexes are and executes the search when a query arrives.   
+
+- Vector Database = Library
+- Vector Index = Library Books/Catalog
+- Vector Search Endpoint = Librarian
+```
+User Question
+      ↓
+Embedding Model
+      ↓
+Vector Search Endpoint
+      ↓
+ Vector Index
+      ↓
+Relevant Chunks
+      ↓
+    LLM
+      ↓
+Final Answer
+```
+
+**Log and Register the model**
+```
+Train Model
+     ↓
+Log Model with MLflow
+     ↓
+Register Model in Unity Catalog
+     ↓
+Model Version Created
+     ↓
+Load and Test the model
+     ↓
+Deploy / Serve Model
+```
+
+**LangChain:**
+Think of it as a connector/orchestrator that links all AI components together.  Without LangChain, You need to manually connect. 
+
+When a user sends a query, LangChain receives it,  
+creates a query embedding, searches the vector database  
+through a retriever, retrieves relevant document chunks,   
+builds a prompt containing the question and retrieved context,  
+sends it to the LLM, and returns the generated answer.  
+If memory or agents are enabled, LangChain also includes  
+conversation history and tool calls in the workflow.   
+
+> LangChain = Glue between LLM + Vector DB + Prompts + Tools
+
+```
+User Question
+       ↓
+LangChain
+       ↓
+Retriever
+       ↓
+Embedding Model
+       ↓
+Query Embedding
+       ↓
+Vector Search Endpoint
+       ↓
+Vector Index
+       ↓
+Top Matching Chunks
+       ↓
+Prompt Template
+       ↓
+LLM
+       ↓
+Generated Answer
+       ↓
+User
+```
 
 
 
-  
-Databricks Mosaic AI Vector Search : Vector DB
+**DELTA**
+Data Lake = data warehouse where all data exists
+Delta Lake = data warehouse + Tracing ...etc(Technology) which supports ACID Transaction, Time Travel, Fast Query...etc
+Delta Table = a table created with delta lake technology
 
 
+
+   
 
 
 
