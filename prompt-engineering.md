@@ -167,6 +167,55 @@ Parsing the document to structured
 Transform and chunk parsed document & save to Delta table
 
 
+EMBEDDING:
+ > Converting text to numbers (vector representation)
+
+Databricks GTE Large: Text Embeding Model
+ > for video, audio, images we use respective embeded models.
+
+VECTOR DATABASE:
+- A normal database finds exact matches  
+  EG: Search: "car"  
+  Result: documents containing the word "car"
+
+- A Vector Database finds documents with similar meaning
+  Search: "vehicle"  
+  Result: documents about cars, trucks, automobiles, transport, etc.
+
+A vector database stores both document embeddings and query embeddings, but in different ways.  
+1. Document Embeddings (Stored Permanently)
+2. Query Embeddings (Temperary on the fly)
+   
+
+**Search Methods**
+A. Similarity Search
+B. Full-Text Search
+C. Hybrid Search
+
+**Search Strategies**
+A. KNN (K-Nearest Neighbors)
+B. ANN (Approximate Nearest Neighbors)
+
+**What is Reranking?**
+Reranking is a second quality check. WHERE WE RE-CHECK AND REORDER.
+
+**Delta Sync**  
+You add a new document to Delta Table.  
+Automatically:  
+ 1. Embedding created  
+ 2. Vector index updated
+
+
+
+
+  
+Databricks Mosaic AI Vector Search : Vector DB
+
+
+
+
+
+
 
 
 
