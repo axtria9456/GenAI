@@ -293,6 +293,7 @@ Delta Lake = data warehouse + Tracing ...etc(Technology) which supports ACID Tra
 Delta Table = a table created with delta lake technology
 
 
+## Agent Bricks
 
    
 
