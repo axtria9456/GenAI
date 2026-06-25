@@ -163,6 +163,9 @@ Here is the **RAG vs Normal AI table in GitHub Markdown (.md) format**:
 | Use Case       | Simple queries       | Enterprise, pharma, legal, finance   |
 ```
 
+Parsing the document to structured
+Transform and chunk parsed document & save to Delta table
+
 
 
 
