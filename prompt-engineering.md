@@ -295,6 +295,36 @@ Delta Table = a table created with delta lake technology
 
 ## Agent Bricks
 
+# FLOW
+```
+1. Databricks Volume (Raw Documents)
+   ↓
+   Tools: Databricks Volume, MuleSoft, MS Graph API
+
+2. Parsing (Extract Text + Structure)
+   ↓
+   Tools: LangChain Loaders, Unstructured, PyPDF, Tika
+
+3. Cleaning (Remove Noise)
+   ↓
+   Tools: Python (regex), NLTK, spaCy, BeautifulSoup
+
+4. Chunking (Split Text)
+   ↓
+   Tools: LangChain Text Splitters
+
+5. Embeddings (Text → Vector)
+   ↓
+   Tools: Databricks Embedding Models / OpenAI / HF
+
+6. Store in Delta Table
+   ↓
+   Tools: PySpark, Delta Lake (text + embedding + metadata)
+
+7. Create Vector Index
+   ↓
+   Tools: Databricks Vector Search
+```
    
 
 
