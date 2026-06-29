@@ -18,6 +18,10 @@ ETA – Estimated Time of Arrival → When work will finish
 ETD – Estimated Time of Delivery/Departure
 
 =============================================================
+API_KEY
+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
+
+============================================================
 
 
 
