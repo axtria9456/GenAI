@@ -260,6 +260,8 @@ Delta Table = a table created with delta lake technology
 
 
 # FLOW
+
+
 1. Data Layer (Sources + ingestion)  
 2. AI Layer (Databricks + RAG + LLM Agent)  
 3. Application Layer (UI + User interaction)  
