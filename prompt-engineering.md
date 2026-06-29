@@ -246,6 +246,25 @@ Load and Test the model
 Deploy / Serve Model
 ```
 
+
+
+
+**DELTA**
+Data Lake = data warehouse where all data exists
+Delta Lake = data warehouse + Tracing ...etc(Technology) which supports ACID Transaction, Time Travel, Fast Query...etc
+Delta Table = a table created with delta lake technology
+
+
+## Agent Bricks
+
+
+
+# FLOW
+1. Data Layer (Sources + ingestion)  
+2. AI Layer (Databricks + RAG + LLM Agent)  
+3. Application Layer (UI + User interaction)  
+
+## 1. Application Layer
 **LangChain:**
 Think of it as a connector/orchestrator that links all AI components together.  Without LangChain, You need to manually connect. 
 
@@ -278,24 +297,13 @@ Top Matching Chunks
        ↓
 Prompt Template
        ↓
-LLM
+      LLM
        ↓
 Generated Answer
        ↓
-User
+     User
 ```
-
-
-
-**DELTA**
-Data Lake = data warehouse where all data exists
-Delta Lake = data warehouse + Tracing ...etc(Technology) which supports ACID Transaction, Time Travel, Fast Query...etc
-Delta Table = a table created with delta lake technology
-
-
-## Agent Bricks
-
-# FLOW
+## 2.  AI Layer
 ```
 1. Databricks Volume (Raw Documents)
    ↓
@@ -325,7 +333,30 @@ Delta Table = a table created with delta lake technology
    ↓
    Tools: Databricks Vector Search
 ```
-   
+## 3. Data Layer
+**Data Sources (Where data comes from)**  
+Primary Sources:  
+Pulse SharePoint: HR, Compliance, Finance docs, Policies, SOPs, internal content  
+Veeva eDocs:  Scientific / pharma documents  
+
+Integration:  
+MuleSoft → pulls Veeva content  
+Copies to SharePoint (Pulse site)  
+👉 So final central knowledge source = SharePoint + Veeva docs  
+
+**Data Ingestion into Databricks:**
+MS Graph API + Python notebooks: Pull files from SharePoint  
+Store data in: Databricks Volume (raw files)  
+
+## For Monitoring & Reporting: Tableau Dashboard
+Tracks:  
+
+User activity  
+Query volume  
+Response time  
+Feedback (51% positive, 40% negative)  
+
+👉 Used for: Weekly stakeholder review  
 
 
 
