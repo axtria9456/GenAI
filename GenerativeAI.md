@@ -355,8 +355,39 @@ Feedback (51% positive, 40% negative)
 
 👉 Used for: Weekly stakeholder review  
 
+# Project Files
+## 1. app.py → Main application entry point
+This is the core file that runs your application. Contains the main logic, routes, API endpoints, or chatbot flow  
 
+This will handle:  
+User query  
+Call to LLM / RAG pipeline  
+Return response to UI  
 
+## 2. app.yaml → Deployment configuration
+Here’s how to start my app and what environment it needs.
+**What it usually contains:**  
+Runtime (Python version)  
+Entry point command  
+Scaling settings  
+Environment variables  
+
+## 3. requirements.txt → Dependencies list
+Lists all Python libraries your project depends on  
+pip install -r requirements.txt  
+
+## utils.py
+Stores reusable logic  
+Keeps app clean  
+Contains RAG pipeline, embeddings, LLM calls  
+
+# Streamlit
+You build a complete app (UI + logic) in one file. No need for HTML, React, etc.
+Streamlit app
+   ↓
+UI + Python logic together
+   ↓
+LLM / RAG
 
 
 
