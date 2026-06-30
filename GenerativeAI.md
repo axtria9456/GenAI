@@ -389,6 +389,9 @@ UI + Python logic together
    ↓
 LLM / RAG
 
-
+# Databricks mainly has 3 types of endpoints:
+1. Model Serving Endpoint → for LLM/model inference  
+2. Vector Search Endpoint → for embedding similarity search  
+3. SQL Warehouse Endpoint → for querying data  
 
 
