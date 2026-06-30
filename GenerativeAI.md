@@ -246,9 +246,6 @@ Load and Test the model
 Deploy / Serve Model
 ```
 
-
-
-
 **DELTA**
 Data Lake = data warehouse where all data exists
 Delta Lake = data warehouse + Tracing ...etc(Technology) which supports ACID Transaction, Time Travel, Fast Query...etc
@@ -256,8 +253,6 @@ Delta Table = a table created with delta lake technology
 
 
 ## Agent Bricks
-
-
 
 # FLOW
 
