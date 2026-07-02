@@ -199,6 +199,8 @@ B. ANN (Approximate Nearest Neighbors)
 
 **What is Reranking?**
 Reranking is a second quality check. WHERE WE RE-CHECK AND REORDER.
+Retraval(fast, broad): vector search pulls top-20 chunks.
+Reranking(slower, precise): a specialized reranking model looks at hte actual question + each chunk together and scores how relevent each one is. only top 3 to 5 reranked chunks gt passed into the augumented prompt template before sent to llm.
 
 **Delta Sync**  
 You add a new document to Delta Table.  
