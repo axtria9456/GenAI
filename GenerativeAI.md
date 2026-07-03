@@ -190,7 +190,59 @@ Prompt Construction
      LLM
       ↓
 Final Answer
-```  
+```
+**Knowledge Assistant Agent:**
+The Knowledge Assistant Agent is not part of the RAG pipeline itself. It sits on top of the RAG pipeline and orchestrates the retrieval and LLM calls.  
+Knowledge Assistant Agent
+        ├── User Defined Functions
+        ├── Vector Database
+        ├── Claude Sonnet 4
+        └── Databricks Data Assets
+
+
+
+
+
+| 1. RAG Pipeline (Processing Steps) | 2. End-to-End RAG Architecture (Components + Pipeline) |
+|-----------------------------------|--------------------------------------------------------|
+| Focuses on **What happens?** | Focuses on **What happens + Which components perform it?** |
+| Logical workflow of data and queries | Complete system view including applications, services, databases, APIs, and LLMs |
+| Shows processing stages only | Shows both processing stages and system components |
+| Used by developers to understand RAG flow | Used by architects to understand the complete solution |
+| Example: Parsing → Chunking → Embedding | Example: SharePoint → MS Graph API → Volume → Vector DB → Agent → LLM |
+| Does not show UI, APIs, Agents, Source Systems | Includes UI, Agents, APIs, Source Systems, Vector DB, LLM, etc. |
+
+| RAG Pipeline | EVAN End-to-End RAG Architecture |
+|--------------|----------------------------------|
+| PDF/DOCX/PPT | SharePoint / Veeva EDocs |
+| ↓ | ↓ |
+| Parsing | MS Graph API / MuleSoft |
+| ↓ | ↓ |
+| Cleaning | Databricks Volume |
+| ↓ | ↓ |
+| Chunking | Data Processing Notebook |
+| ↓ | ↓ |
+| Embedding | Embedding Model |
+| ↓ | ↓ |
+| Vector Database | Vector Database |
+| ↓ | ↓ |
+| User Question | User Interface |
+| ↓ | ↓ |
+| Question Embedding | Knowledge Assistant Agent |
+| ↓ | ↓ |
+| Similarity Search | User Defined Functions |
+| ↓ | ↓ |
+| Top Relevant Chunks | Claude Sonnet 4 |
+| ↓ | ↓ |
+| Prompt Construction | Final Answer |
+| ↓ | |
+| LLM | |
+| ↓ | |
+| Final Answer | |
+
+
+
+
 ## How RAG Works (Step-by-step)
 User asks a question  
 System retrieves relevant data from:  
