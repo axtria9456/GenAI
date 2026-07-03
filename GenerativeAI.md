@@ -109,9 +109,21 @@ Breaking complex tasks into multiple connected prompts.
 2. Select the best idea  
 3. Expand into full content  
 
----
+---  
 
-## The Boundaries of Prompting  
+# RAG
+**Without RAG:**  
+Imagine ChatGPT itself.  
+You ask:  
+  - What is Eisai's internal Oncology SOP document?  
+The model cannot answer because:  
+  - It was trained on public data  
+  - It does not know Eisai's internal documents  
+  - It cannot access private company data  
+Result:  
+❌ Hallucination  or  ❌ "I don't know"
+
+**The Boundaries of LLM/Prompting:**  
 **The Knowledge Cutoff:** The model cannot answer questions about events that occurred after the cutoff date of its training data.  
 Example Prompt: Who won the 2025 Nobel Prize in Physics?  
 
@@ -121,17 +133,64 @@ Example Prompt: Find a scientific reference proving that avocado reduces blood s
 **Ambiguity:** Without private context, models default to generic interpretations.  
 Example Prompt: Explain how to secure a lakehouse. (This triggers advice on physical home security rather than Databricks Data Lakehouse governance.)  
 
-## Retrival Agent
+### Retrival Agent:
 A retrieval agent is like a smart assistant that first “searches for information” and then gives you an answer. it is a part of RAG. 
 Normal AI Gives answers on Pre-trained data. Retrieval Agent gives real-time date. 
 
-# RAG
-RAG is a method where AI first searches for information and then generates an answer.  
+**With RAG:**
+Before sending the question to the LLM:  
+- Search company documents
+- Find relevant information
+- Send that information to the LLM
+- LLM generates answer using retrieved content
+
+Result:  
+✅ Accurate answer
+✅ Based on company documents
+✅ Less hallucination
 
 Think of RAG like an open-book exam:  
 ❌ Normal AI → answers from memory (may guess)  
 ✅ RAG → opens book → finds info → then answers  
 
+RAG = Retrieval + Augmented + Generation  
+Retrieval  
+ - Find relevant documents.  
+Augmented  
+ - Add those documents into prompt.  
+Generation  
+ - LLM generates answer.
+
+**End-to-End RAG Architecture:**
+```
+PDF/DOCX/PPT
+      ↓
+Databricks Volume
+      ↓
+Parsing
+      ↓
+Cleaning
+      ↓
+Chunking
+      ↓
+Embedding
+      ↓
+Vector Database
+      ↓
+User Question
+      ↓
+Embedding
+      ↓
+Similarity Search
+      ↓
+Top Relevant Chunks
+      ↓
+Prompt Construction
+      ↓
+     LLM
+      ↓
+Final Answer
+```  
 ## How RAG Works (Step-by-step)
 User asks a question  
 System retrieves relevant data from:  
@@ -141,28 +200,14 @@ System retrieves relevant data from:
 AI reads the retrieved info  
 AI generates a final answer based on that data
 
-✅ Result = accurate + up-to-date answer  
 
-## The RAG process consists of three key stages:
-**Retrieval:** The system searches a knowledge base (indexed via Mosaic AI Vector Search) for relevant data chunks  
-**Augmentation:** The system injects these chunks into the context window  
-**Generation:** The model synthesizes an answer using only the injected data  
 
-Here is the **RAG vs Normal AI table in GitHub Markdown (.md) format**:
 
-```markdown
-## RAG vs Normal AI
 
-| Feature        | Normal AI              | RAG (Retrieval-Augmented Generation) |
-|----------------|----------------------|--------------------------------------|
-| Knowledge      | Pre-trained only     | Pre-trained + real-time data         |
-| Accuracy       | May hallucinate      | More accurate and reliable           |
-| Data Source    | Internal memory      | External sources (docs, DBs, APIs)   |
-| Updates        | Static knowledge     | Dynamic and up-to-date               |
-| Response Style | General answers      | Context-based answers                |
-| Use Case       | Simple queries       | Enterprise, pharma, legal, finance   |
-```
 
+
+
+**Parsing**
 Parsing the document to structured
 Transform and chunk parsed document & save to Delta table
 
