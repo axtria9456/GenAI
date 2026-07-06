@@ -451,4 +451,18 @@ LLM / RAG
 2. Vector Search Endpoint → for embedding similarity search  
 3. SQL Warehouse Endpoint → for querying data  
 
+# What is Spark?
+Apache Spark is a distributed data processing engine used to process large amounts of data quickly across multiple machines.  
+Think of Spark as the processing engine of Databricks.  Databricks is built on top of Apache Spark.  
+> suppose if you have 1 gb of data we go for pandas where 1 machine is enough to process, but when we have massive datasets like 10TB, 100TB we go for spark.
+```
+Machine 1
+Machine 2
+Machine 3
+Machine 4
+    ↓
+Parallel Processing
+    ↓
+Fast
+```  
 
